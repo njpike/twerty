@@ -1,0 +1,37 @@
+<h1>Howdy doo, fellow stranger! Introduce yerself.</h1>
+<%= 'hey there, we\'re on Rails' %>
+<%= Rails.version %>
+<%= ', just so you can more easily find some exploits on this here app' %>
+
+<%= form_with model: @user do |form| %>
+
+	<div>
+		<%= form.label :username, "Username" %>
+		<%= form.text_field :username, value: @user.username %>
+	</div>
+
+	<div>
+		<%= form.label :firstname, "First name" %>
+		<%= form.text_field :firstname, value: @user.firstname %>
+	</div>
+
+	<div>
+		<%= form.label :lastname, "Last name" %>
+		<%= form.text_field :lastname, value: @user.lastname %>
+	</div>
+
+	<div>
+		<%= form.label :email, "Email" %>
+		<%= form.email_field :email, value: @user.email %>
+	</div>
+
+	<div>
+		<%= form.label :password, "Password" %>
+		<%= form.password_field :password %>
+	</div>
+
+	<%= form.submit %>
+<% end %>
+
+<style>
+</style>
