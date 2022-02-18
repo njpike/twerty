@@ -1,0 +1,10 @@
+<h1>HELLO WELCOME TO TWERTY</h1>
+<h3>you want twerts?</h3>
+
+<% if session[:user_id].present? %>
+	<%= User.find(session[:user_id]).username%>
+<% end %>
+
+<% if current_user.present? %>
+	<%= "#{current_user.firstname} #{current_user.lastname}" %>
+<% end %>
