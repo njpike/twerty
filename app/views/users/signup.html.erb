@@ -3,7 +3,7 @@
 <%= Rails.version %>
 <%= ', just so you can more easily find some exploits on this here app' %>
 
-<%= form_with model: @user do |form| %>
+<%= form_with model: @user, url: signup_path do |form| %>
 
 	<div>
 		<%= form.label :username, "Username" %>

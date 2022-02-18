@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'twerts#index'
 
+  #resources :users  # switched this out for explicit routes for practice
+  post 'signup', to: 'users#create'
   get 'signup', to: 'users#signup'
 
-  resources :users
 end
