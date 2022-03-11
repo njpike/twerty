@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'twerts#index'
 
+  ## User routes
   #resources :users  # switched this out for explicit routes for practice
   post 'signup', to: 'users#create'
   get 'signup', to: 'users#signup'
@@ -11,4 +12,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
 
   delete 'logout', to: 'sessions#destroy'
+
+  ## Twerts routes
+  post 'twerts', to: 'twerts#create'
 end

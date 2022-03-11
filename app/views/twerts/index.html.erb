@@ -6,10 +6,17 @@
 <% end %>
 
 <% if current_user.present? %>
-	<%= "#{current_user.firstname} #{current_user.lastname}" %>
-<% end %>
+	<div>
+		<%= "#{current_user.firstname} #{current_user.lastname}" %>
+	</div>
 
-<% if session[:user_id].present? %>
+	<div>
+		<%= form_with url: twerts_path, method: :post do |form| %>
+			<%= form.text_field :content, placeholder: "Type your twerty little thoughts here!" %>
+			<%= form.submit %>
+		<% end %>
+	</div>
+
 	<div>
 		<%= link_to "The cooler log out \"button\"", logout_path, method: :delete %>
 	</div>
@@ -18,3 +25,4 @@
 		<%= link_to "Log in!", login_path %>
 	</div>
 <% end %>
+
