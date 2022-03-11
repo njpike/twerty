@@ -11,6 +11,10 @@
 
 <% if session[:user_id].present? %>
 	<div>
-		<%= link_to "The cooler log out \"button\"", "/logout", method: :delete %>
+		<%= link_to "The cooler log out \"button\"", logout_path, method: :delete %>
+	</div>
+<% else %>
+	<div>
+		<%= link_to "Log in!", login_path %>
 	</div>
 <% end %>
