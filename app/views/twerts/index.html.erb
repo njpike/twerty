@@ -8,3 +8,9 @@
 <% if current_user.present? %>
 	<%= "#{current_user.firstname} #{current_user.lastname}" %>
 <% end %>
+
+<% if session[:user_id].present? %>
+	<div>
+		<%= link_to "The cooler log out \"button\"", "/logout", method: :delete %>
+	</div>
+<% end %>
