@@ -15,4 +15,8 @@ class TwertsController < ApplicationController
 	def twert_params
 		params.require(:twert).permit(:content).merge(user: current_user)
 	end
+
+	helper_method def hot_twerts
+		Twert.last(10)
+	end
 end
