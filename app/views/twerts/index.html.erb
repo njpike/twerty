@@ -11,7 +11,7 @@
 	</div>
 
 	<div>
-		<%= form_with url: twerts_path, method: :post do |form| %>
+		<%= form_with model: Twert.new(), url: twerts_path, method: :post do |form| %>
 			<%= form.text_field :content, placeholder: "Type your twerty little thoughts here!" %>
 			<%= form.submit %>
 		<% end %>
