@@ -27,8 +27,9 @@
 <% end %>
 
 <div>
-	<% hot_twerts.each do |twert| %>
-		<%= render partial: "twert", locals: { twert: twert } %>
+	<% hot_twerts.each do |t| %>
+		<%= render partial: "twert", locals: { twert: t } %>
+		<%= link_to "all replies", twert_path(t) %>
 	<% end %>
 </div>
 
