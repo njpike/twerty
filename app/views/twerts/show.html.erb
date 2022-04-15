@@ -1,1 +1,6 @@
 <%= render partial: "twert", locals: { twert: twert } %>
+<div>
+	<% twert.replies.each do |t| %>
+		<%= render partial: "twert", locals: { twert: t } %>
+	<% end %>
+</div>
