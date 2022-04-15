@@ -1,0 +1,9 @@
+<% parent_twert = local_assigns[:parent_twert] %>
+
+<div>
+    <%= form_with model: Twert.new(), url: twerts_path, method: :post do |form| %>
+        <%= form.text_field :content, placeholder: "Type your twerty little thoughts here!" %>
+        <%= form.hidden_field(:parent_twert_id, value: parent_twert&.id )%>
+        <%= form.submit %>
+    <% end %>
+</div>

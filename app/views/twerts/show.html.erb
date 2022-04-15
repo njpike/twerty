@@ -3,4 +3,5 @@
 	<% twert.replies.each do |t| %>
 		<%= render partial: "twert", locals: { twert: t } %>
 	<% end %>
+	<%= render partial: "twert_form", locals: { parent_twert: twert } %>
 </div>

@@ -18,7 +18,7 @@ class TwertsController < ApplicationController
 	end
 
 	def twert_params
-		params.require(:twert).permit(:content).merge(user: current_user)
+		params.require(:twert).permit(:content, :parent_twert_id).merge(user: current_user)
 	end
 
 	helper_method def hot_twerts
