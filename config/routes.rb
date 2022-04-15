@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   ## Twerts routes
+  get 'twerts/:id', to: 'twerts#show'
   post 'twerts', to: 'twerts#create'
 end

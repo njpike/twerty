@@ -1,5 +1,10 @@
 class TwertsController < ApplicationController
+	before_action :load_twert, only: [:show]
+
 	def index
+	end
+
+	def show
 	end
 
 	def create
@@ -18,5 +23,17 @@ class TwertsController < ApplicationController
 
 	helper_method def hot_twerts
 		Twert.last(10)
+	end
+
+	helper_method def twert
+		@_twert ||= Twert.find_by(id: params[:id])
+	end
+
+	private
+
+	def load_twert
+		unless (twert)
+			redirect_to root_path, notice: "Sorry, we couldn't find that twert"
+		end
 	end
 end
