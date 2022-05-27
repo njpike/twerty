@@ -1,0 +1,38 @@
+<%= content_tag(:span, "#{likeable.likes.count} likes", id: "like_count_#{likeable_html_id(likeable)}" ) %>
+
+<%= button_tag "like this dumb thought", id: "like_#{likeable_html_id(likeable)}" %>
+
+<%= javascript_tag do %>
+	var like_btn = <%= "like_#{likeable_html_id(likeable)}" %>
+
+	like_btn.onclick = function(){
+		const csrfToken = document.querySelector("[name='csrf-token']").content;
+		const likeableId = "<%= likeable.id %>";
+		const likeableType = "<%= likeable.class %>";
+		const data = {
+			likeable_id: likeableId,
+			likeable_type: likeableType
+		}
+
+		fetch("/likes", {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+				"X-CSRF-Token": csrfToken,
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify( data )
+		}).then(response => {
+			// TODO: throw an error if we didn't get a good response
+			// if (!response.ok) { throw response; }
+			return response.json();
+		}).then((data) => {
+			// TODO: increment like count on front-end with the response.body.like_count
+			console.log(data);
+		}).catch(error => {
+			// TODO: actually handle error, lmao
+			console.log("error", error);
+		})
+
+	}
+<% end %>

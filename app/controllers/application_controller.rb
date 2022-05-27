@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
 			@current_user = User.find(session[:user_id])
 		end
 	end
+
+	helper_method def likeable_html_id(likeable)
+		return "#{likeable.class.name.downcase}_#{likeable.id}" if likeable
+	end
 end

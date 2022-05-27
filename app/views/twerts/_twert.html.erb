@@ -5,3 +5,8 @@
 <div>
 	<%= twert.content %>
 </div>
+<div>
+	<%= render partial: "likes/like_button", locals: { likeable: twert } if current_user.present? %>
+</div>
+
+
